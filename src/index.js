@@ -2,7 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 const Header = (props) => {
-    return <h1>Hello {props.title}</h1>
+    return (
+        <h1>
+            {props.id}. Hello {props.title}
+        </h1>
+    )
 }
 
 const Text = () => {
@@ -17,8 +21,8 @@ const Text = () => {
 const App = () => {
     return (
         <>
-            <Header title="React" />
-            <Header title="App.js" />
+            <Header title="React" id={1} />
+            <Header title="App.js" id={2} />
             <Text />
         </>
     )
