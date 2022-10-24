@@ -1,6 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const el = <h1>Hello React</h1>
+const Header = () => {
+    return <h1>Hello World</h1>
+}
 
-ReactDOM.render(el, document.getElementById('root'))
+const Text = () => {
+    return (
+        <React.Fragment>
+            <p>lorem lkdmvionen nervnen nevrunv</p>
+            <p>lorem lkdmvionen nervnen nevrunv</p>
+        </React.Fragment>
+    )
+}
+
+const App = () => {
+    return (
+        <>
+            <Header />
+            <Text />
+        </>
+    )
+}
+
+ReactDOM.render(<App />, document.getElementById('root'))
