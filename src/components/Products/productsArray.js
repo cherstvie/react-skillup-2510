@@ -6,6 +6,7 @@ export const productsArray = [
         capacity: '128',
         type: 'phone',
         price: '500',
+        image: '/images/iphone-gold.jpg',
     },
     {
         id: 2,
@@ -14,6 +15,7 @@ export const productsArray = [
         capacity: '256',
         type: 'phone',
         price: '1100',
+        image: '/images/iphone-gold.jpg',
     },
     {
         id: 3,
@@ -22,6 +24,7 @@ export const productsArray = [
         capacity: '64',
         type: 'phone',
         price: '400',
+        image: '/images/iphone-gold.jpg',
     },
     {
         id: 4,
@@ -30,6 +33,7 @@ export const productsArray = [
         capacity: '32',
         type: 'phone',
         price: '300',
+        image: '/images/iphone-gold.jpg',
     },
     {
         id: 5,
@@ -38,6 +42,7 @@ export const productsArray = [
         capacity: '64',
         type: 'phone',
         price: '350',
+        image: '/images/iphone-gold.jpg',
     },
     {
         id: 6,
@@ -46,5 +51,6 @@ export const productsArray = [
         capacity: '128',
         type: 'phone',
         price: '700',
+        image: '/images/iphone-gold.jpg',
     },
 ]
