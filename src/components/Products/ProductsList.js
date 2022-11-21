@@ -5,6 +5,8 @@ import { Grid } from '@mui/material'
 import { ProductsListItem } from 'components/Products/ProductsListItem'
 import { productsArray } from './productsArray'
 
+const h1 = <h1>Hello World</h1>
+
 const useStyles = makeStyles({
     title: {
         padding: '30px 0',
@@ -32,17 +34,19 @@ export const ProductsList = () => {
                 alignItems="center"
                 spacing={3}
             >
-                {productsArray.map((product) => (
-                    <Grid item xs={12} sm={6} md={4}>
-                        <ProductsListItem
-                            name={product.name}
-                            description={product.description}
-                            capacity={product.capacity}
-                            type={product.type}
-                            price={product.price}
-                        />
-                    </Grid>
-                ))}
+                {productsArray.map(
+                    ({ id, name, description, capacity, type, price }) => (
+                        <Grid item xs={12} sm={6} md={4} key={id}>
+                            <ProductsListItem
+                                name={name}
+                                description={description}
+                                capacity={capacity}
+                                type={type}
+                                price={price}
+                            />
+                        </Grid>
+                    )
+                )}
             </Grid>
         </>
     )
