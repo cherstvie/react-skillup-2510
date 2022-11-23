@@ -5,8 +5,6 @@ import { Grid } from '@mui/material'
 import { ProductsListItem } from 'components/Products/ProductsListItem'
 import { productsArray } from './productsArray'
 
-const h1 = <h1>Hello World</h1>
-
 const useStyles = makeStyles({
     title: {
         padding: '30px 0',

@@ -21,3 +21,13 @@
     font-size: 17px;
     margin-bottom: 10px;
 }
+
+.product-quantity {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.product-quantity input {
+    text-align: center;
+}
