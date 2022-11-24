@@ -5,7 +5,7 @@ import {
     Button,
     TextField,
 } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import './ProductsListItem.css'
 import PropTypes from 'prop-types'
 
@@ -17,6 +17,16 @@ export const ProductsListItem = ({
     price,
     image,
 }) => {
+    const [count, setCount] = useState(1)
+
+    const onDecrementClick = () => {
+        setCount(count - 1)
+    }
+
+    const onIncrementClick = () => {
+        setCount(count + 1)
+    }
+
     return (
         <>
             <Card>
@@ -32,9 +42,21 @@ export const ProductsListItem = ({
                     </div>
                     <div className="product-price">{price} $</div>
                     <div className="product-quantity">
-                        <Button variant="contained">-</Button>
-                        <TextField size="small" value="1" />
-                        <Button variant="contained">+</Button>
+                        <Button
+                            variant="contained"
+                            onClick={onDecrementClick}
+                            disabled={count <= 1}
+                        >
+                            -
+                        </Button>
+                        <TextField size="small" value={count} />
+                        <Button
+                            variant="contained"
+                            onClick={onIncrementClick}
+                            disabled={count >= 10}
+                        >
+                            +
+                        </Button>
                     </div>
                 </CardContent>
                 <CardActions className="wrap-btn-add-to-cart">
