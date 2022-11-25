@@ -5,21 +5,18 @@ import { Main } from 'containers/Main/Main'
 import { Footer } from 'containers/Footer/Footer'
 
 export const App = () => {
-    const [cartData, setCartData] = useState({
-        totalCount: 0,
-        totalPrice: 0,
+    const [productsInCart, setProductsInCart] = useState({
+        1: 5,
+        2: 1,
+        3: 6,
     })
 
-    const addProductToCart = (count, price) =>
-        setCartData((prevState) => ({
-            totalCount: prevState.totalCount + count,
-            totalPrice: prevState.totalPrice + count * price,
-        }))
+    const addProductToCart = () => {}
 
     return (
         <>
             <CssBaseline />
-            <Header cartData={cartData} />
+            <Header productsInCart={productsInCart} />
             <Main addProductToCart={addProductToCart} />
             <Footer />
         </>
