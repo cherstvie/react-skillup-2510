@@ -16,7 +16,7 @@ export const ProductsListItem = ({
     capacity,
     price,
     image,
-    setCartData,
+    addProductToCart,
 }) => {
     const [count, setCount] = useState(1)
 
@@ -26,13 +26,6 @@ export const ProductsListItem = ({
 
     const onIncrementClick = () => {
         setCount(count + 1)
-    }
-
-    const addToCart = () => {
-        setCartData(({ totalCount: prevCount, totalPrice: prevPrice }) => ({
-            totalCount: prevCount + count,
-            totalPrice: prevPrice + price * count,
-        }))
     }
 
     return (
@@ -68,7 +61,10 @@ export const ProductsListItem = ({
                     </div>
                 </CardContent>
                 <CardActions className="wrap-btn-add-to-cart">
-                    <Button variant="outlined" onClick={addToCart}>
+                    <Button
+                        variant="outlined"
+                        onClick={() => addProductToCart(count, price)}
+                    >
                         Add to cart
                     </Button>
                 </CardActions>

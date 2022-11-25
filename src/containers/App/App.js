@@ -20,10 +20,7 @@ export const App = () => {
         <>
             <CssBaseline />
             <Header cartData={cartData} />
-            <button onClick={() => addProductToCart(5, 1000)}>
-                Add to cart
-            </button>
-            <Main setCartData={setCartData} />
+            <Main addProductToCart={addProductToCart} />
             <Footer />
         </>
     )
