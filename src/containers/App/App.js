@@ -8,10 +8,15 @@ export const App = () => {
     const [productsInCart, setProductsInCart] = useState({
         1: 5,
         2: 1,
-        3: 6,
     })
 
-    const addProductToCart = () => {}
+    const addProductToCart = (id, count) => {
+        setProductsInCart((prevState) =>
+            Object.assign({}, prevState, {
+                [id]: prevState[id] + count,
+            })
+        )
+    }
 
     return (
         <>

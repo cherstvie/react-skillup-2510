@@ -10,6 +10,7 @@ import './ProductsListItem.css'
 import PropTypes from 'prop-types'
 
 export const ProductsListItem = ({
+    id,
     name,
     description,
     type,
@@ -63,7 +64,7 @@ export const ProductsListItem = ({
                 <CardActions className="wrap-btn-add-to-cart">
                     <Button
                         variant="outlined"
-                        onClick={() => addProductToCart(count, price)}
+                        onClick={() => addProductToCart(id, count)}
                     >
                         Add to cart
                     </Button>
@@ -74,6 +75,7 @@ export const ProductsListItem = ({
 }
 
 ProductsListItem.propTypes = {
+    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     description: PropTypes.string,
     type: PropTypes.string.isRequired,
