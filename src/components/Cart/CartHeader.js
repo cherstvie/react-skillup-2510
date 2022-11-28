@@ -10,8 +10,6 @@ const productsObject = productsArray.reduce(
     {}
 )
 
-console.log(productsObject)
-
 export const CartHeader = ({ productsInCart }) => {
     return (
         <div>
@@ -21,6 +19,17 @@ export const CartHeader = ({ productsInCart }) => {
                     {productsInCart[productId]}
                 </div>
             ))}
+            <div>
+                Total :{' '}
+                {keys(productsInCart).reduce(
+                    (total, productId) =>
+                        total +
+                        productsObject[productId].price *
+                            productsInCart[productId],
+                    0
+                )}
+                $
+            </div>
         </div>
     )
 }
