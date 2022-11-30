@@ -7,8 +7,22 @@ import MenuIcon from '@mui/icons-material/Menu'
 import { Container } from '@mui/material'
 import { Menu } from 'components/Menu/Menu'
 import { CartHeader } from 'components/Cart/CartHeader'
+import { Link } from 'react-router-dom'
+import { makeStyles } from '@mui/styles'
+
+const useStyles = makeStyles({
+    logo: {
+        textDecoration: 'none',
+        color: 'white',
+        '&:hover': {
+            textDecoration: 'underline',
+        },
+    },
+})
 
 export const Header = ({ productsInCart }) => {
+    const classes = useStyles()
+
     return (
         <>
             <AppBar position="static">
@@ -28,7 +42,9 @@ export const Header = ({ productsInCart }) => {
                             component="div"
                             sx={{ flexGrow: 1 }}
                         >
-                            Fake shop
+                            <Link to="/" className={classes.logo}>
+                                Fake shop
+                            </Link>
                         </Typography>
                         <Menu />
                         <CartHeader productsInCart={productsInCart} />
