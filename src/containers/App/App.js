@@ -21,7 +21,10 @@ export const App = () => {
         <>
             <CssBaseline />
             <Header productsInCart={productsInCart} />
-            <Main addProductToCart={addProductToCart} />
+            <Main
+                productsInCart={productsInCart}
+                addProductToCart={addProductToCart}
+            />
             <Footer />
         </>
     )

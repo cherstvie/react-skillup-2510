@@ -34,4 +34,10 @@
 
 .nav-link {
     color: black;
+    text-decoration: none;
+}
+
+.menu-link {
+    color: white;
+    text-decoration: none;
 }
