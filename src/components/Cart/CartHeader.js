@@ -1,16 +1,14 @@
 import React from 'react'
 import { keys } from 'lodash'
-import { productsArray } from 'components/Products/productsArray'
+import {
+    productsArray,
+    getProductsObject,
+} from 'components/Products/productsArray'
 
-const productsObject = productsArray.reduce(
-    (obj, product) => ({
-        ...obj,
-        [product.id]: product,
-    }),
-    {}
-)
-
-export const CartHeader = ({ productsInCart }) => {
+export const CartHeader = ({
+    productsInCart,
+    productsObject = getProductsObject(productsArray),
+}) => {
     return (
         <div>
             {keys(productsInCart).map((productId) => (
