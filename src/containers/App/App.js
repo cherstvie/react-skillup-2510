@@ -6,7 +6,7 @@ import { Footer } from 'containers/Footer/Footer'
 
 export const App = () => {
     const [productsInCart, setProductsInCart] = useState({
-        1: 5,
+        1: 1,
         2: 1,
     })
 
