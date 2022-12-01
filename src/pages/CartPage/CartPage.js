@@ -4,6 +4,7 @@ import {
     getProductsObject,
     productsArray,
 } from 'components/Products/productsArray'
+import { CartTotal } from 'components/Cart/CartTotal'
 
 export const CartPage = ({
     productsInCart,
@@ -20,17 +21,7 @@ export const CartPage = ({
                         {productsObject[productId].price}
                     </div>
                 ))}
-                <div>
-                    Total :{' '}
-                    {keys(productsInCart).reduce(
-                        (total, productId) =>
-                            total +
-                            productsObject[productId].price *
-                                productsInCart[productId],
-                        0
-                    )}
-                    $
-                </div>
+                <CartTotal productsInCart={productsInCart} />
             </div>
         </>
     )
