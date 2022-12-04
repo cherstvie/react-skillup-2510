@@ -33,7 +33,7 @@ export const CartProductListItemExtended = ({
                     <div>Count: {productCount}</div>
                     <Button
                         variant="outlined"
-                        onClick={() => removeProductFromCart()}
+                        onClick={() => removeProductFromCart(product.id)}
                     >
                         <Delete />
                     </Button>
