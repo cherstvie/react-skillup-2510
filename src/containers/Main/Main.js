@@ -6,7 +6,11 @@ import { CartPage } from 'pages/CartPage/CartPage'
 import { PaymentPage } from 'pages/PaymentPage/PaymentPage'
 import { ShippingPage } from 'pages/ShippingPage/ShippingPage'
 
-export const Main = ({ productsInCart, addProductToCart }) => {
+export const Main = ({
+    productsInCart,
+    addProductToCart,
+    removeProductFromCart,
+}) => {
     return (
         <>
             <Container>
@@ -21,7 +25,12 @@ export const Main = ({ productsInCart, addProductToCart }) => {
                     />
                     <Route
                         path="cart"
-                        element={<CartPage productsInCart={productsInCart} />}
+                        element={
+                            <CartPage
+                                productsInCart={productsInCart}
+                                removeProductFromCart={removeProductFromCart}
+                            />
+                        }
                     />
                     <Route
                         path="products"

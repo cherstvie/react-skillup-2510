@@ -1,10 +1,11 @@
-import { Card, CardContent, Grid } from '@mui/material'
+import { Card, CardContent, Grid, Button } from '@mui/material'
 import React from 'react'
 import { makeStyles } from '@mui/styles'
+import { Delete } from '@mui/icons-material'
 
 const useStyles = makeStyles({
     media: {
-        width: 100,
+        width: 150,
         height: 'auto',
         marginRight: 15,
     },
@@ -14,10 +15,14 @@ const useStyles = makeStyles({
     },
 })
 
-export const CartProductListItemExtended = ({ product, productCount }) => {
+export const CartProductListItemExtended = ({
+    product,
+    productCount,
+    removeProductFromCart,
+}) => {
     const classes = useStyles()
     return (
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} sm={6}>
             <Card className={classes.cardWrap}>
                 <div>
                     <img src={product.image} className={classes.media} />
@@ -26,6 +31,12 @@ export const CartProductListItemExtended = ({ product, productCount }) => {
                     <div>{product.name}</div>
                     <div>Price for one item: {product.price}$</div>
                     <div>Count: {productCount}</div>
+                    <Button
+                        variant="outlined"
+                        onClick={() => removeProductFromCart()}
+                    >
+                        <Delete />
+                    </Button>
                 </CardContent>
             </Card>
         </Grid>
