@@ -2,6 +2,7 @@ import { Card, CardContent, Grid, Button } from '@mui/material'
 import React from 'react'
 import { makeStyles } from '@mui/styles'
 import { Delete } from '@mui/icons-material'
+import { Quantity } from 'components/Quantity/Quantity'
 
 const useStyles = makeStyles({
     media: {
@@ -31,6 +32,7 @@ export const CartProductListItemExtended = ({
                     <div>{product.name}</div>
                     <div>Price for one item: {product.price}$</div>
                     <div>Count: {productCount}</div>
+                    <Quantity count={productCount} />
                     <Button
                         variant="outlined"
                         onClick={() => removeProductFromCart(product.id)}

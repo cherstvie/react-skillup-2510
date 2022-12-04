@@ -1,13 +1,8 @@
-import {
-    Card,
-    CardActions,
-    CardContent,
-    Button,
-    TextField,
-} from '@mui/material'
+import { Card, CardActions, CardContent, Button } from '@mui/material'
 import React, { useState } from 'react'
 import './ProductsListItem.css'
 import PropTypes from 'prop-types'
+import { Quantity } from 'components/Quantity/Quantity'
 
 export const ProductsListItem = ({
     id,
@@ -43,23 +38,11 @@ export const ProductsListItem = ({
                         Capacity: {capacity} GB
                     </div>
                     <div className="product-price">{price} $</div>
-                    <div className="product-quantity">
-                        <Button
-                            variant="contained"
-                            onClick={onDecrementClick}
-                            disabled={count <= 1}
-                        >
-                            -
-                        </Button>
-                        <TextField size="small" value={count} />
-                        <Button
-                            variant="contained"
-                            onClick={onIncrementClick}
-                            disabled={count >= 10}
-                        >
-                            +
-                        </Button>
-                    </div>
+                    <Quantity
+                        onDecrementClick={onDecrementClick}
+                        onIncrementClick={onIncrementClick}
+                        count={count}
+                    />
                 </CardContent>
                 <CardActions className="wrap-btn-add-to-cart">
                     <Button
