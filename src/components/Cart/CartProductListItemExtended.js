@@ -34,14 +34,19 @@ export const CartProductListItemExtended = ({
                     <div>Price for one item: {product.price}$</div>
                     <div>Count: {productCount}</div>
                     <Quantity
-                        onDecrementClick={() =>
-                            changeProductQuantity(product.id, productCount - 1)
-                        }
+                        onDecrementClick={() => {
+                            productCount === 1
+                                ? removeProductFromCart(product.id)
+                                : changeProductQuantity(
+                                      product.id,
+                                      productCount - 1
+                                  )
+                        }}
                         onIncrementClick={() =>
                             changeProductQuantity(product.id, productCount + 1)
                         }
                         count={productCount}
-                        changeProductQuantity={changeProductQuantity}
+                        minCount={0}
                     />
                     <Button
                         variant="outlined"
