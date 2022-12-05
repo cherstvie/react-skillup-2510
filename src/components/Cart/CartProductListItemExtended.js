@@ -20,6 +20,7 @@ export const CartProductListItemExtended = ({
     product,
     productCount,
     removeProductFromCart,
+    changeProductQuantity,
 }) => {
     const classes = useStyles()
     return (
@@ -32,7 +33,16 @@ export const CartProductListItemExtended = ({
                     <div>{product.name}</div>
                     <div>Price for one item: {product.price}$</div>
                     <div>Count: {productCount}</div>
-                    <Quantity count={productCount} />
+                    <Quantity
+                        onDecrementClick={() =>
+                            changeProductQuantity(product.id, productCount - 1)
+                        }
+                        onIncrementClick={() =>
+                            changeProductQuantity(product.id, productCount + 1)
+                        }
+                        count={productCount}
+                        changeProductQuantity={changeProductQuantity}
+                    />
                     <Button
                         variant="outlined"
                         onClick={() => removeProductFromCart(product.id)}
