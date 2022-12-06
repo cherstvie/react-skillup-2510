@@ -74,7 +74,9 @@ const CartProductListItemExtended = ({
     )
 }
 
-const mapStateToProps = (state, { product }) => ({ isLiked: state[product.id] })
+const mapStateToProps = (state, { product }) => ({
+    isLiked: state.productsLikeState[product.id],
+})
 
 const mapDispatchToProps = (dispatch) => ({
     addLike: (id) => dispatch({ type: 'LIKE', id }),
