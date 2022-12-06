@@ -2,7 +2,7 @@ import React from 'react'
 import Typography from '@mui/material/Typography'
 import { makeStyles } from '@mui/styles'
 import { Grid } from '@mui/material'
-import { ProductsListItem } from 'components/Products/ProductsListItem'
+import ProductsListItem from 'components/Products/ProductsListItem'
 import { productsArray } from './productsArray'
 
 const useStyles = makeStyles({
