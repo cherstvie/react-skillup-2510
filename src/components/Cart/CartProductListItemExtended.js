@@ -1,8 +1,9 @@
 import { Card, CardContent, Grid, Button } from '@mui/material'
 import React from 'react'
 import { makeStyles } from '@mui/styles'
-import { Delete } from '@mui/icons-material'
+import { Delete, Favorite, FavoriteBorder } from '@mui/icons-material'
 import { Quantity } from 'components/Quantity/Quantity'
+import { connect } from 'react-redux'
 
 const useStyles = makeStyles({
     media: {
@@ -16,11 +17,14 @@ const useStyles = makeStyles({
     },
 })
 
-export const CartProductListItemExtended = ({
+const CartProductListItemExtended = ({
     product,
     productCount,
     removeProductFromCart,
     changeProductQuantity,
+    isLiked = false,
+    addLike,
+    removeLike,
 }) => {
     const classes = useStyles()
     return (
@@ -30,6 +34,16 @@ export const CartProductListItemExtended = ({
                     <img src={product.image} className={classes.media} />
                 </div>
                 <CardContent>
+                    <Button
+                        variant="outlined"
+                        onClick={() =>
+                            isLiked
+                                ? removeLike(product.id)
+                                : addLike(product.id)
+                        }
+                    >
+                        {isLiked ? <Favorite /> : <FavoriteBorder />}
+                    </Button>
                     <div>{product.name}</div>
                     <div>Price for one item: {product.price}$</div>
                     <div>Count: {productCount}</div>
@@ -59,3 +73,15 @@ export const CartProductListItemExtended = ({
         </Grid>
     )
 }
+
+const mapStateToProps = (state, { product }) => ({ isLiked: state[product.id] })
+
+const mapDispatchToProps = (dispatch) => ({
+    addLike: (id) => dispatch({ type: 'LIKE', id }),
+    removeLike: (id) => dispatch({ type: 'DISLIKE', id }),
+})
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(CartProductListItemExtended)
