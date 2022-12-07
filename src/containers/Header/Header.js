@@ -6,7 +6,7 @@ import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
 import { Container } from '@mui/material'
 import { Menu } from 'components/Menu/Menu'
-import { CartHeader } from 'components/Cart/CartHeader'
+import CartHeader from 'components/Cart/CartHeader'
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@mui/styles'
 
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const Header = ({ productsInCart }) => {
+export const Header = () => {
     const classes = useStyles()
 
     return (
@@ -47,7 +47,7 @@ export const Header = ({ productsInCart }) => {
                             </Link>
                         </Typography>
                         <Menu />
-                        <CartHeader productsInCart={productsInCart} />
+                        <CartHeader />
                     </Toolbar>
                 </Container>
             </AppBar>

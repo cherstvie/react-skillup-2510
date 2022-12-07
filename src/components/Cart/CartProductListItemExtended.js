@@ -31,7 +31,7 @@ const CartProductListItemExtended = ({
         <Grid item xs={12} sm={6}>
             <Card className={classes.cardWrap}>
                 <div>
-                    <img src={product.image} className={classes.media} />
+                    <img alt="" src={product.image} className={classes.media} />
                 </div>
                 <CardContent>
                     <Button
@@ -81,6 +81,10 @@ const mapStateToProps = (state, { product }) => ({
 const mapDispatchToProps = (dispatch) => ({
     addLike: (id) => dispatch({ type: 'LIKE', id }),
     removeLike: (id) => dispatch({ type: 'DISLIKE', id }),
+    removeProductFromCart: (id) =>
+        dispatch({ type: 'REMOVE_PRODUCT_FROM_CART', id }),
+    changeProductQuantity: (id, count) =>
+        dispatch({ type: 'CHANGE_PRODUCT_QUANTITY', id, count }),
 })
 
 export default connect(
