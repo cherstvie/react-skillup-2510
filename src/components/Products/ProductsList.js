@@ -3,7 +3,8 @@ import Typography from '@mui/material/Typography'
 import { makeStyles } from '@mui/styles'
 import { Grid } from '@mui/material'
 import ProductsListItem from 'components/Products/ProductsListItem'
-import { productsArray } from './productsArray'
+// import { productsArray } from './productsArray'
+import { useSelector } from 'react-redux'
 
 const useStyles = makeStyles({
     title: {
@@ -14,6 +15,7 @@ const useStyles = makeStyles({
 
 export const ProductsList = () => {
     const classes = useStyles()
+    const productsArray = useSelector((state) => state.products)
     return (
         <>
             <Typography

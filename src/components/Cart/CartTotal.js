@@ -1,24 +1,34 @@
 import React from 'react'
 import { keys } from 'lodash'
-import {
-    getProductsObject,
-    productsArray,
-} from 'components/Products/productsArray'
+import { getProductsObject } from 'components/Products/productsArray'
+import { connect } from 'react-redux'
 
-export const CartTotal = ({
+const CartTotal = ({
+    productsArray,
     productsInCart,
     productsObject = getProductsObject(productsArray),
 }) => {
-    return (
-        <>
-            Total :{' '}
-            {keys(productsInCart).reduce(
-                (total, productId) =>
-                    total +
-                    productsObject[productId].price * productsInCart[productId],
-                0
-            )}
-            $
-        </>
-    )
+    if (productsArray === 0) {
+        return null
+    } else {
+        return (
+            <>
+                Total :{' '}
+                {keys(productsInCart).reduce(
+                    (total, productId) =>
+                        total +
+                        productsObject[productId].price *
+                            productsInCart[productId],
+                    0
+                )}
+                $
+            </>
+        )
+    }
 }
+
+const mapStateToProps = (state) => ({
+    productsArray: state.products,
+})
+
+export default connect(mapStateToProps)(CartTotal)
