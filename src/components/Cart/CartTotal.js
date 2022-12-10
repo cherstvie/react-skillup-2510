@@ -8,7 +8,7 @@ const CartTotal = ({
     productsInCart,
     productsObject = getProductsObject(productsArray),
 }) => {
-    if (productsArray === 0) {
+    if (productsArray.length === 0) {
         return null
     } else {
         return (

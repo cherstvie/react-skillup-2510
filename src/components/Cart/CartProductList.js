@@ -10,7 +10,7 @@ const CartProductList = ({
     productsObject = getProductsObject(productsArray),
     CartItem = CartProductListItem,
 }) => {
-    if (productsArray === 0) {
+    if (productsArray.length === 0) {
         return null
     } else {
         return (
