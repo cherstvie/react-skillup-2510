@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { Component } from 'react'
 
 class CheckoutPage extends Component {
@@ -7,14 +8,40 @@ class CheckoutPage extends Component {
         isOrderSend: false,
     }
 
+    handleName = (e) => {
+        this.setState({
+            name: e.target.value,
+        })
+    }
+
+    handleAddress = (e) => {
+        this.setState({
+            address: e.target.value,
+        })
+    }
+
+    sendForm = (e) => {
+        e.preventDefault()
+        axios
+            .post('url', {
+                name: this.state.name,
+                sddress: this.state.address,
+            })
+            .then((res) => res.data)
+            .then(({ name, address }) =>
+                this.setState({ name, address, isOrderSend: true })
+            )
+    }
+
     renderForm = () => {
         return (
-            <form>
+            <form onSubmit={this.sendForm}>
                 <div>
                     <input
                         type="text"
                         placeholder="Your name"
                         value={this.state.name}
+                        onChange={this.handleName}
                     />
                 </div>
                 <div>
@@ -22,6 +49,7 @@ class CheckoutPage extends Component {
                         type="text"
                         placeholder="Your address"
                         value={this.state.address}
+                        onChange={this.handleAddress}
                     />
                 </div>
                 <button type="submit">Send</button>
@@ -30,7 +58,12 @@ class CheckoutPage extends Component {
     }
 
     renderMessage = () => {
-        return <div>Dear, {this.state.name}, thanks for your order</div>
+        return (
+            <div>
+                Dear, {this.state.name}, thanks for your order{' '}
+                <p>{this.state.address}</p>
+            </div>
+        )
     }
 
     render() {
