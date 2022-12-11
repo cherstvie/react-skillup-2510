@@ -18,8 +18,8 @@ const CartPage = ({ productsInCart }) => {
                     />
                 </Grid>
                 <CartTotal productsInCart={productsInCart} />
-                <Link to="/checkout">Proceed checkout</Link>
             </div>
+            <Link to="/checkout">Proceed checkout</Link>
         </>
     )
 }

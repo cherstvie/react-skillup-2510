@@ -23,10 +23,13 @@ class CheckoutPage extends Component {
     sendForm = (e) => {
         e.preventDefault()
         axios
-            .post('url', {
-                name: this.state.name,
-                sddress: this.state.address,
-            })
+            .post(
+                'https://my-json-server.typicode.com/kznkv-skillup/server/orders',
+                {
+                    name: this.state.name,
+                    sddress: this.state.address,
+                }
+            )
             .then((res) => res.data)
             .then(({ name, address }) =>
                 this.setState({ name, address, isOrderSend: true })
