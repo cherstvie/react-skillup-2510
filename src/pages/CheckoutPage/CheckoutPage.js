@@ -27,7 +27,7 @@ class CheckoutPage extends Component {
                 'https://my-json-server.typicode.com/kznkv-skillup/server/orders',
                 {
                     name: this.state.name,
-                    sddress: this.state.address,
+                    address: this.state.address,
                 }
             )
             .then((res) => res.data)
@@ -63,8 +63,8 @@ class CheckoutPage extends Component {
     renderMessage = () => {
         return (
             <div>
-                Dear, {this.state.name}, thanks for your order{' '}
-                <p>{this.state.address}</p>
+                Dear, {this.state.name}, thanks for your order. Delivery
+                address: {this.state.address}
             </div>
         )
     }
